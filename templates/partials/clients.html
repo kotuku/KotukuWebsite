@@ -1,0 +1,25 @@
+<section id="clients" class="white-bg padding-top-bottom">
+
+    <div class="container">
+
+        <h1 class="section-title">{{ cms.clients.heading }}</h1>
+        <p class="section-description">{{ cms.clients.intro }}</p>
+
+        <div class="row clients">
+            {% for row in cms.clients.clients %}
+
+            <div class="col-sm-6 col-md-3">
+
+                <div class="client scrollimation fade-up in">
+                    <a href="{{ row.website }}" target="_blank"><img class="img-responsive img-center" src="{{ row.image|imageSize(190, 82) }}" alt="{{ row.name }}"></a>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div><!-- End row -->
+
+    </div><!-- End container -->
+
+</section>

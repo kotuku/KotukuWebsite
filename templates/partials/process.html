@@ -1,0 +1,37 @@
+<section id="process" class="white-bg padding-top-bottom">
+
+    <h1 class="section-title">{{ cms.process.heading }}</h1>
+    <p class="section-description">{{ cms.process.intro }}</p>
+
+    <div class="process-box scrollimation">
+
+        <ul class="process-list">
+            {% for row in cms.process.steps %}
+            <li {% if loop.last %} class="colored" {% endif %}>
+                <p class="icon"><i class="fa fa-{{ row.icon }} fa-fw"></i></p>
+                <h4>{{ row.name }}</h4>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="process-line"></div>
+
+    </div>
+</section>
+
+<section class="color-bg light-typo cta">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 cta-message">
+                {{ cms.process.seperator|safe }}
+            </div>
+            <div class="col-md-3 cta-button">
+                <p class="text-center"><a class="btn btn-qubico scrollto white" href="#contact">Talk To Us</a></p>
+            </div>
+        </div><!--End row-->
+
+    </div><!--End container -->
+
+</section>

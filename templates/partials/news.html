@@ -1,0 +1,74 @@
+<!-- ==============================================
+        NEWS
+        =============================================== -->
+
+<section id="news" class="gray-bg padding-top-bottom">
+
+    <div class="container">
+
+        <h1 class="section-title">{{ cms.news.heading }}</h1>
+        <p class="section-description">{{ cms.news.intro }} </p>
+
+        <div class="timeline">
+
+            {% set articles = cms.articles %}
+
+            {% for article in articles %}
+            {% set article._month_year = article.publish_date|date('M') + ' ' + article.publish_date|date('Y')%}
+            {% endfor %}
+
+            {% for month_year, group in articles|sort('publish_date')|groupBy('_month_year') %}
+
+            <div class="date-title">
+                <span>{{loop.key}}</span>
+            </div>
+
+
+            <div class="row">
+
+                {% for article in group %}
+
+                <div class="col-sm-6 news-item scrollimation {% if loop.index%2 == 0 %} right {% endif %} fade-up">
+
+                    <div class="news-content ">
+
+                        <div class="date">
+                            <p>{{ article.publish_date|date('d') }}</p>
+                            <small>{{ article.publish_date|date('D') }}</small>
+                        </div>
+
+                        <h2 class="news-title">{{ article.name }}</h2>
+                        <div class="news-media gallery ">
+                            {% for row in article.images %}
+                            <a class="colorbox cboxElement" href="{{row.image.url}}">
+                                {% if loop.first %}
+                                <img class="img-responsive" src="{{row.image.url|imageCrop(80, 80)}}" alt />
+                                {% endif %}
+                            </a>
+                            {% endfor %}
+                        </div>
+
+
+                        <p>{{article.intro}}</p>
+
+                        <a class="read-more" href="{{url(article)}}">Read More</a>
+
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            {% endfor %}
+
+
+
+        </div>
+
+        <p class="text-center"><a class="btn btn-qubico" href="/blog">Read our Blog</a></p>
+
+    </div>
+
+</section>

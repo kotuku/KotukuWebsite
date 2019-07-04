@@ -1,0 +1,58 @@
+<!-- ==============================================
+CONTACT
+=============================================== -->
+<section id="contact" class="white-bg padding-top-bottom">
+
+    <div class="container">
+
+        <h1 class="section-title">{{ cms.contact.heading }}</h1>
+        <p class="section-description">{{ cms.contact.intro }}</p>
+
+
+        <div class="row">
+
+            <!--=== Contact Form ===-->
+            <form id="contact-form" class="col-sm-6 col-sm-offset-3" action="//formspree.io/{{ cms.contact.recipient}}" method="post" novalidate>
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-name">Name</label>
+                    <div class="controls">
+                        <input id="contact-name" name="contactName" placeholder="Your name" class="form-control requiredField label_better" type="text" data-error-empty="Please enter your name">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div><!-- End name input -->
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-mail">Phone</label>
+                    <div class=" controls">
+                        <input id="contact-phone" name="phone" placeholder="Your phone" class="form-control requiredField label_better" type="tel" data-error-empty="Please enter your phone number" data-error-invalid="Invalid phone number">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                </div><!-- End email input -->
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-mail">Email</label>
+                    <div class=" controls">
+                        <input id="contact-mail" name="email" placeholder="Your email" class="form-control requiredField label_better" type="email" data-error-empty="Please enter your email" data-error-invalid="Invalid email address">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div><!-- End email input -->
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-message">Message</label>
+                    <div class="controls">
+                        <textarea id="contact-message" name="comments" placeholder="Your message" class="form-control requiredField label_better" rows="6" data-error-empty="Please enter your message"></textarea>
+                        <i class="fa fa-comment"></i>
+                    </div>
+                </div><!-- End textarea -->
+
+                <p><button name="submit" type="submit" class="btn btn-qubico btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-location-arrow"></i>Send Message</button></p>
+                <input type="hidden" name="submitted" id="submitted" value="true" />
+
+            </form><!-- End contact-form -->
+
+        </div>
+
+    </div>
+
+</section>

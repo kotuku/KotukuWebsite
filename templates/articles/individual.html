@@ -1,0 +1,117 @@
+{# ------------------------------------------------------- #}
+{# INDIVIDUAL VIEW FOR EACH articles #}
+{# This page can use any data from http:localhost:2000/cms/#/form/articles/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page . It will append this articles's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+{% block content %}
+
+                          <!-- ==============================================
+    HEADER
+    =============================================== -->
+                          <header id="home" class="color-bg light-typo padding-top-bottom">
+
+                              <div class="container">
+
+                                  <h1 class="page-title">{{ item.name }}</h1>
+
+                                  <p class="page-subtitle">{{ item.subtitle }}</p>
+
+                              </div><!--End container -->
+
+                          </header><!--End header -->
+                          <!-- ==============================================
+    SINGLE POST
+    =============================================== -->
+                          <article class="post single-post">
+
+                              <div class="container scrollimation fade-up">
+
+                                  <div class="row">
+
+                                      <div class="col-sm-10 col-sm-offset-1">
+
+                                          <div class="post-media">
+
+                                              <div class="post-slider flexslider">
+
+                                                  <ul class="slides">
+                                                      {% for image in item.images %}
+                                                      <li>
+                                                          <img class="img-responsive" src="{{ image|imageCrop(945, 532) }}" alt="{{ image.caption }}" />
+                                                      </li>
+                                                      {% endfor %}
+
+                                                  </ul>
+
+                                              </div>
+
+                                          </div>
+
+                                          <div class="post-content">
+
+                                                {{ item.body|safe }}
+
+                                          </div>
+
+                                          <footer class="post-footer">
+
+                                              <div class="post-meta clearfix">
+
+                                                  <p class="post-date">{{ item.publish_date|date('M d, Y') }}</p>
+
+                                                  <p class="post-share">
+                                                      Share:
+
+                                                      <span class="social-media" data-title="Optional custom share title">
+                                                          <span class="facebook"></span>
+                                                          <span class="twitter" data-via="qthemes"></span>
+                                                          <span class="plusone"></span>
+                                                          <span class="pinterest"></span>
+                                                      </span>
+                                                  </p>
+
+                                              </div>
+                                              {% set prev = prevItem(item, 'publish_date', true) %}
+                                              {% set next = nextItem(item, 'publish_date', true) %}
+                                              <nav class="posts-nav clearfix">
+                                                  <ul>
+                                                      {% if prev %}
+                                                      <li class="prev-post">
+                                                          <a href="{{ url(prev) }}">Previous Post</a>
+                                                          <p>{{ prev.name }}</p>
+                                                      </li>
+                                                      {% endif %}
+                                                      {% if next %}
+                                                      <li class="next-post">
+                                                          <a href="{{ url(next) }}">Next Post</a>
+                                                          <p>{{ next.name }}</p>
+                                                      </li>
+                                                      {% endif %}
+                                                  </ul>
+
+                                                  <a class="all-posts" href="/blog" data-toggle="tooltip" title="Back to Blog"><i class="fa fa-th-list"></i></a>
+
+                                              </nav>
+
+                                          </footer>
+
+                                      </div>
+
+                                  </div><!--End row -->
+
+                              </div><!--End container -->
+
+
+
+                          </article><!--End post -->
+
+
+{% endblock %}

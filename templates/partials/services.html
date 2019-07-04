@@ -1,0 +1,36 @@
+<!-- ==============================================
+        SERVICES
+        =============================================== -->
+<section id="services" class="gray-bg padding-top-bottom">
+
+    <div class="container">
+
+        <h1 class="section-title">{{ cms.services.heading }}</h1>
+        <p class="section-description">{{ cms.services.intro }}</p>
+
+        <div class="row services">
+
+            {% for row in cms.services.service_items %}
+
+            <div class="col-sm-3 item text-center scrollimation {{ row.animation }} {% if row.delay %} d2 {% endif %}">
+
+                <div class="icon"><i class="fa fa-{{ row.icon }}"></i></div>
+                <h3>{{ row.title }}</h3>
+                <p>{{ row.description }}</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <p class="section-description"> </p>
+
+    </div>
+
+</section>
+
+
+
+
+

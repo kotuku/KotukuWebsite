@@ -1,0 +1,68 @@
+<!-- ==============================================
+TEAM
+=============================================== -->
+<section id="team" class="white-bg padding-top-bottom">
+
+    <div class="container">
+
+        <h1 class="section-title">{{ cms.team.heading }}</h1>
+        <p class="section-description">{{ cms.team.intro }} </p>
+
+        {% for row in cms.team.members %}
+        <div class="{% if row.align == 'Left' %} row team-member {% else %} row team-member right {% endif %}">
+
+            <div class="{% if row.align == 'Left' %} col-sm-3 col-sm-offset-1 member-thumb scrollimation fade-right {% else %} col-sm-3 col-sm-push-8 member-thumb scrollimation fade-left {% endif %}">
+
+                <img class="img-responsive img-center" src="{{ row.photo|imageCrop(360, 440) }}" alt="{{ row.person.first }} {{ row.person.last }}" />
+                <h4>{{ row.person.first }} {{ row.person.last }}</h4>
+                <p class="title">{{ row.job_title }}</p>
+
+            </div>
+
+            <div class="{% if row.align == 'Left' %} col-sm-7 scrollimation fade-left {% else %} col-sm-7 col-sm-pull-2 scrollimation fade-right {% endif %}">
+
+                <div class="member-details">
+                    <p>{{ row.description }}</p>
+
+                    <ul class="member-socials">
+                        {% if row.phone %}
+                        <li><a href="tel:{{ row.phone }}" data-toggle="tooltip" title="{{ row.phone }}"><i class="fa fa-phone fa-fw"></i></a></li>
+                        {% endif %}
+                        {% if row.email %}
+                        <li><a href="mailto:{{ row.email }}"><i class="fa fa-envelope fa-fw"></i></a></li>
+                        {% endif %}
+                        {% if row.twitter %}
+                        <li><a href="{{ row.twitter }}"><i class="fa fa-twitter fa-fw"></i></a></li>
+                        {% endif %}
+                        {% if row.linkedin %}
+                        <li><a href="{{ row.linkedin }}"><i class="fa fa-linkedin fa-fw"></i></a></li>
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+    </div>
+
+</section>
+
+<section class="color-bg light-typo cta">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 cta-message">
+                {{ cms.team.seperator|safe }}
+            </div>
+            <div class="col-md-3 cta-button">
+                <p class="text-center"><a class="btn btn-qubico scrollto white" href="#contact">Talk To Us</a></p>
+            </div>
+        </div><!--End row-->
+
+    </div><!--End container -->
+
+</section>

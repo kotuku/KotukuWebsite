@@ -1,0 +1,86 @@
+<!-- ==============================================
+MAIN NAV
+=============================================== -->
+<div id="main-nav" class="navbar navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+
+            <!-- ======= LOGO ========-->
+            <a class="navbar-brand scrollto" href="/#home">
+
+                <!-- ==== Image Logo ==== -->
+                <img class="visible-xs" src="{{ cms.home.site_image.url | imageSize(230,60)}}" />
+                <img class="hidden-xs" src="{{ cms.home.site_image.url | imageSize(430,100)}}" />
+            </a>
+
+        </div>
+
+        <div id="site-nav" class="navbar-collapse collapse">
+        {% if getCurrentUrl() == "/" %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class="sr-only">
+                    <a href="#home" class="scrollto">{{ cms.home.name}}</a>
+                </li>
+                <li>
+                    <a href="#about" class="scrollto">{{ cms.about.name}}</a>
+                </li>
+                <li>
+                    <a href="#services" class="scrollto">{{ cms.services.name}}</a>
+                </li>
+                <li>
+                    <a href="#team" class="scrollto">{{ cms.team.name}}</a>
+                </li>
+                <!--<li>
+                    <a href="#portfolio" class="scrollto">{{ cms.portfolio.name}}</a>
+                </li>-->
+                <li>
+                    <a href="#clients" class="scrollto">{{ cms.clients.name}}</a>
+                </li>
+                <li>
+                    <a href="#news" class="scrollto">{{ cms.news.name}}</a>
+                </li>
+                <li>
+                    <a href="#contact" class="scrollto">{{ cms.contact.name}}</a>
+                </li>
+                <li>
+                    <a href="/blog">{{ cms.blog.name}}</a>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class="sr-only">
+                    <a href="/#home" class="scrollto">{{ cms.home.name}}</a>
+                </li>
+                <li>
+                    <a href="/#about" class="scrollto">{{ cms.about.name}}</a>
+                </li>
+                <li>
+                    <a href="/#services" class="scrollto">{{ cms.services.name}}</a>
+                </li>
+                <li>
+                    <a href="/#team" class="scrollto">{{ cms.team.name}}</a>
+                </li>
+                <li>
+                    <a href="/#portfolio" class="scrollto">{{ cms.portfolio.name}}</a>
+                </li>
+                <li>
+                    <a href="/#news" class="scrollto">{{ cms.news.name}}</a>
+                </li>
+                <li>
+                    <a href="/#contact" class="scrollto">{{ cms.contact.name}}</a>
+                </li>
+                <li>
+                    <a href="/blog">{{ cms.blog.name}}</a>
+                </li>
+            </ul>
+        {% endif %}
+        </div><!--End navbar-collapse -->
+
+    </div><!--End container -->
+
+</div><!--End main-nav -->

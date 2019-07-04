@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "kotukusystems", ".", "{21A2C9FA-A562-477D-9CF2-7B1CF1A6B26C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52644"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\Websites\KotukuSystems\webhook\kotukusystems\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52644\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52644"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\Websites\KotukuSystems\webhook\kotukusystems\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52644\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52644"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21A2C9FA-A562-477D-9CF2-7B1CF1A6B26C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A2C9FA-A562-477D-9CF2-7B1CF1A6B26C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70A8026D-F7F3-4363-A77F-D36D0ABC4DE3}
+	EndGlobalSection
+EndGlobal

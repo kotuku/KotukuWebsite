@@ -1,0 +1,138 @@
+{% extends "templates/partials/base.html" %}
+
+{# This sets our page title
+    . It will append articlecategories to the site title defined in base.html #}
+    {% block title %}{% parent %} - articlecategories{% endblock %}
+
+    {% block content %}
+
+    {# The first thing we do is call articlecategories data from the CMS. #}
+    {% set data = cms.articlecategories %}
+
+    {# Next we sort the data by publish_date. The true bit reverses it so it's newest first. Learn more: #}
+    {# http://www.webhook.com/docs/template-rules-and-filters/#sortproperty_reverseorder #}
+    {% set data = data|sort('name') %}
+
+
+
+
+<!-- ==============================================
+   HEADER
+   =============================================== -->
+<header id="page-header" class="color-bg light-typo padding-top-bottom">
+
+    <div class="container">
+
+        {% block categorytitle %}
+        <h1 class="page-title">{{ cms.blog.heading}}</h1>
+
+        <p class="page-subtitle">{{ cms.blog.intro}}</p>
+        {% endblock %}
+
+    </div><!--End container -->
+
+</header><!--End header -->
+<!-- ==============================================
+BLOG CATEGORIES
+=============================================== -->
+<section id="blog-categories" class="gray-bg">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!--==== Blog Categories ====-->
+
+            <div>
+                {% block category %}
+                <ul>
+                    <li class="active">
+                        <a href="/blog">All Posts</a>
+                    </li>
+
+                    {% for object in data %}
+                    <li><a href="{{ url(object) }}">{{ object.name }}</a></li>
+                    {% endfor %}
+
+                </ul>
+                {% endblock %}
+            </div><!--End Blog Categories -->
+
+        </div><!--End row-->
+
+    </div><!--End container -->
+
+</section><!--End Categories Section -->
+{% block articles %}
+
+
+
+{% endblock %}
+
+<section class="blog-list">
+
+
+    {% for article in articles %}
+
+
+    <article class="post">
+
+        <div class="container scrollimation fade-up">
+
+            <div class="row">
+
+                <div class="col-sm-10 col-sm-offset-1">
+
+                    <header class="post-header">
+                        <h1 class="post-title">{{ article.name }}</h1>
+                        <small class="post-meta">{{ article.publish_date|date('F d Y') }} </small>
+                    </header>
+
+                    <div class="post-media">
+
+                        <div class="post-slider flexslider">
+
+                            <ul class="slides">
+                                {% for image in article.images %}
+                                <li>
+                                    <img class="img-responsive" src="{{ image|imageCrop(945, 532) }}" alt="{{ image.caption }}" />
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="post-content">
+
+                        <div class="post-excerpt">
+                            {{ article.intro }}
+
+                        </div>
+
+                    </div>
+
+                    <footer>
+                        <p><a class="read-more" href="{{ url(article) }}">Read More</a></p>
+                    </footer>
+
+                </div>
+
+            </div><!--End row -->
+
+        </div><!--End container -->
+
+    </article><!--End post -->
+    {% endfor %}
+
+
+</section><!--End blog-list -->
+
+    {# The actual pagination template, feel free to edit or replace the default one. #}
+    {% include "templates/partials/paginator.html" %}
+
+    {% endblock %}
+
+
+
+
